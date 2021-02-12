@@ -7,7 +7,7 @@
     <form (ngSubmit)="onSubmit()" #noticeForm="ngForm">
       <div class="form-group">
         <input type="text" [(ngModel)]="notice.title"
-          class="border mb-2"
+          class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-2"
           id="title"
           name="title"
           placeholder="Title"
@@ -15,10 +15,14 @@
       </div>
 
       <div class="form-group">
-          <textarea #description="ngModel" name="description" class="border" [(ngModel)]="notice.description" id="" cols="30" rows="10" required></textarea>
+          <textarea #description="ngModel" name="description" class="mb-2 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" [(ngModel)]="notice.description" id="" cols="30" rows="10" required></textarea>
       </div>
-      <button type="submit" [disabled]="!noticeForm.form.valid"
-        class="btn btn-info">Submit</button>
+
+      <div>
+        <a class="mr-2 bg-purple-800 px-4 py-2 text-white rounded" routerLink="/notices">Cancel</a>
+        <button type="submit" [disabled]="!noticeForm.form.valid"
+          class="bg-purple-800 px-4 py-2 text-white rounded disabled:opacity-50">Submit</button>
+      </div>
     </form>
   </div>
 </div>
