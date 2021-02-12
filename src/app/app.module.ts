@@ -9,13 +9,15 @@ import { ListNoticeComponent } from './components/list-notice/list-notice.compon
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { EditNoticeComponent } from './components/edit-notice/edit-notice.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateNoticeComponent,
     DetailsNoticeComponent,
-    ListNoticeComponent
+    ListNoticeComponent,
+    EditNoticeComponent
   ],
   imports: [
     BrowserModule,

@@ -80,10 +80,6 @@ export class ListNoticeComponent implements OnInit {
 
   }
 
-  editNotice() {
-    this.router.navigate(['/notices/1']);
-  }
-
   deleteNotice(id) {
     this.noticeService.delete(id)
     .subscribe(
