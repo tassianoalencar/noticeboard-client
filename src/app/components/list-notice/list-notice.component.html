@@ -1,1 +1,40 @@
-<p>list-notice works!</p>
+<div class="flex flex-col">
+  <div class="mb-4">
+    <a class="float-right bg-purple-800 px-4 py-2 text-white rounded" routerLink="/notices/create">Create</a>
+  </div>
+
+  <ul class="divide-y divide-dashed divide-gray-200 mb-4">
+    <li class="flex justify-between items-center"
+      *ngFor="
+            let notice of notices | paginate : {
+                    itemsPerPage: pageSize,
+                    currentPage: page,
+                    totalItems: count
+                  };
+            let i = index
+          "
+      [class.active]="i == currentIndex"
+      (click)="setActiveNotice(notice, i)"
+    >
+      <a class="p-4 flex-1 hover:bg-gray-50 cursor-pointer" routerLink="/notices/{{ notice.id }}">
+        <span class="text-gray-300" *ngIf="notice.visualizedAt != null" >✓</span>
+        {{ notice.title }}
+      </a>
+
+      <div>
+        <button class="mx-2" (click)="editNotice()">EDIT</button>
+        <button (click)="deleteNotice(notice.id)">DELETE</button>
+      </div>
+    </li>
+  </ul>
+
+  <div class="col-md-12">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      responsive="true"
+      (pageChange)="handlePageChange($event)"
+    ></pagination-controls>
+  </div>
+
+</div>
